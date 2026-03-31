@@ -4,7 +4,6 @@ from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
 from app.operations import add, divide, multiply, subtract
@@ -49,7 +48,6 @@ configure_logging()
 logger = logging.getLogger(__name__)
 
 app = FastAPI(title="FastAPI Calculator")
-templates = Jinja2Templates(directory="app/templates")
 
 
 @app.get("/", response_class=HTMLResponse)
